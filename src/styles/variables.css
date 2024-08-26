@@ -1,7 +1,7 @@
 :root {
   --color-white: #f8f7ff;
-  --color-purple: #b8b8ff;
-  --color-dark-purple: #9381ff;
+  --color-purple: #313131;
+  --color-dark-purple: #212121;
   --color-light: #ffd8be;
   --color-acc: #ffeedd;
   --animation-cubicBezier: 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);

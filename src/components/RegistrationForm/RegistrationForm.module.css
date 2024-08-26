@@ -3,11 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  padding-bottom: 15px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  gap: 10px;
+  padding: 0 32px;
+  width: 330px;
+  height: 400px;
+  border-radius: 8px;
   background-color: var(--color-white);
+  margin-bottom: 20 px;
 }
 
 .label {
@@ -58,15 +60,15 @@ input:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 150px;
+  border-radius: 9px;
   cursor: pointer;
-  margin-top: 5px;
   --bg: #000;
   --hover-bg: #000;
   --hover-text: #000;
   color: #fff;
   cursor: pointer;
   border: 1px solid var(--bg);
-  border-radius: 9px;
   padding: 0.8em 2em;
   background: var(--color-dark-purple);
   transition: all ease-in-out 0.3s;
@@ -78,5 +80,12 @@ input:hover {
   &:active {
     transform: translate(0);
     box-shadow: none;
+  }
+}
+
+.link {
+  color: #0a4b9a;
+  &:hover {
+    text-decoration: underline;
   }
 }

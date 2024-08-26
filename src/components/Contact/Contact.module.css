@@ -1,3 +1,9 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .textWrapper {
   width: 230px;
   display: flex;
@@ -28,6 +34,13 @@
   gap: 5px;
 }
 
+.buttonsWraper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
 .deleteButton {
   display: flex;
   justify-content: center;
@@ -35,9 +48,6 @@
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
-  position: absolute;
-  top: 30%;
-  right: 15px;
   --bg: #000;
   --hover-bg: #000;
   --hover-text: #000;
@@ -46,7 +56,34 @@
   background: var(--color-dark-purple);
   transition: 0.2s;
   &:hover {
-    color: var(--hover-text);
+    transform: translate(-0.25rem, -0.25rem);
+    background: var(--color-purple);
+    box-shadow: 0.25rem 0.25rem var(--bg);
+  }
+  &:active {
+    transform: translate(0);
+    box-shadow: none;
+  }
+}
+
+.changeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  /* position: absolute;
+  top: 30%;
+  right: 15px; */
+  --bg: #000;
+  --hover-bg: #000;
+  --hover-text: #000;
+  color: #fff;
+  border: 1px solid var(--bg);
+  background: var(--color-dark-purple);
+  transition: 0.2s;
+  &:hover {
     transform: translate(-0.25rem, -0.25rem);
     background: var(--color-purple);
     box-shadow: 0.25rem 0.25rem var(--bg);

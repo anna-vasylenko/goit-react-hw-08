@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark-purple);
+  color: var(--color-white);
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  background: linear-gradient(43deg, #313131 0%, #212121 46%, #313131 100%);
+}
+
+.navigation {
+  display: flex;
+  gap: 25px;
+}
+
+.text {
+  text-transform: uppercase;
+  font-size: 18px;
+}

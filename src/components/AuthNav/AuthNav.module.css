@@ -1,0 +1,9 @@
+.listNav {
+  display: flex;
+  gap: 25px;
+}
+
+.link {
+  text-transform: uppercase;
+  font-size: 18px;
+}

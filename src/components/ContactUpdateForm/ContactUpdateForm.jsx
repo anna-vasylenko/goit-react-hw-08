@@ -1,26 +1,21 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
 import { contactSchema } from "../../helpers/contactSchema";
-import s from "./ContactForm.module.css";
+import s from "./ContactUpdateForm.module.css";
+import { updateContact } from "../../redux/contacts/operations";
+import { setCurrentContact } from "../../redux/contacts/slice";
 
-const initialValues = {
-  name: "",
-  number: "",
-};
-
-const ContactForm = () => {
+const ContactUpdateForm = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, options) => {
-    const newContact = values;
-    dispatch(addContact(newContact));
+    dispatch(updateContact({ name: values.name, number: values.number, id }));
     options.resetForm();
   };
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{ name, number }}
       onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
@@ -37,11 +32,18 @@ const ContactForm = () => {
           <ErrorMessage name="number" component="span" className={s.message} />
         </label>
         <button type="submit" className={s.button}>
-          Add Contact
+          Update Contact
+        </button>
+        <button
+          type="button"
+          className={s.button}
+          onClick={() => dispatch(setCurrentContact(null))}
+        >
+          Cancel
         </button>
       </Form>
     </Formik>
   );
 };
 
-export default ContactForm;
+export default ContactUpdateForm;
