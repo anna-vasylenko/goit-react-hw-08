@@ -6,6 +6,7 @@ import {
   updateContact,
 } from "./operations";
 import { handleFulFilled, handlePending, handleRejected } from "../handlers";
+import { logOut } from "../auth/operations";
 
 const initialState = {
   items: [],
@@ -24,6 +25,9 @@ const contactsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(logOut.fulfilled, () => {
+        return initialState;
+      })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.items = action.payload;
       })

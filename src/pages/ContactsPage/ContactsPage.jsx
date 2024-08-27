@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import Loader from "../../components/Loader/Loader";
@@ -12,7 +11,6 @@ import {
 } from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
 import s from "./ContactsPage.module.css";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import ContactUpdateForm from "../../components/ContactUpdateForm/ContactUpdateForm";
 
 const ContactsPage = () => {
@@ -24,11 +22,6 @@ const ContactsPage = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  if (!isLoggedIn) {
-    return <Navigate to="/login" />;
-  }
 
   return (
     <div className={s.wrapper}>
