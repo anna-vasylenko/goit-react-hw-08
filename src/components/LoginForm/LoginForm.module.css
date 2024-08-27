@@ -60,7 +60,6 @@ input:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
   border-radius: 9px;
   cursor: pointer;
   --bg: #000;
