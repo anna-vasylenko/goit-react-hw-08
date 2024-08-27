@@ -62,8 +62,8 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Suspense>
   );
