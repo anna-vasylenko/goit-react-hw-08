@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
-import { selectIsRefreshing } from "./redux/auth/selectors";
+import { selectIsError, selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUser } from "./redux/auth/operations";
 import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
+import toast from "react-hot-toast";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -18,10 +19,17 @@ const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 function App() {
   const dispatch = useDispatch();
   const isRefresh = useSelector(selectIsRefreshing);
+  const isError = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error("Invalid email or password!", { duration: 2000 });
+    }
+  }, [isError]);
 
   return isRefresh ? (
     <Loader />

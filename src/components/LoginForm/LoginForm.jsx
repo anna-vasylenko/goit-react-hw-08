@@ -1,9 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import s from "./LoginForm.module.css";
-import { loginSchema } from "../../helpers/loginSchema";
+// import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { logIn } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";
+import { logIn } from "../../redux/auth/operations";
+import { loginSchema } from "../../helpers/loginSchema";
+import s from "./LoginForm.module.css";
 
 const initialValues = {
   email: "",
